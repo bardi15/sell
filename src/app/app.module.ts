@@ -25,6 +25,9 @@ import { RouterModule } from '@angular/router';
     }, {
       path: 'list',
       component: ListComponent
+    }, {
+      path: 'details/:id',
+      component: DetailsComponent
     }])
   ],
   providers: [SellerService],
