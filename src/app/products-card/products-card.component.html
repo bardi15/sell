@@ -1,8 +1,24 @@
-
-<div *ngIf="product">
+<!--<div *ngIf="product">
   <td>{{product.name}}</td>
   <td>{{product.price}}</td>
   <td>{{product.quantitySold}}</td>
   <td>{{product.quantityInStock}}</td>
   <td><img src={{product.imagePath}} alt={{product.name}} /></td>
+</div>
+
+<div class="card" style="width: 20rem;">
+  <div class="card-block">
+    <h3 class="card-title">Special title treatment</h3>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>-->
+
+<div class="thumbnail">
+  <img src={{product.imagePath}} alt={{product.name}}>
+  <div class="caption">
+    <h3>{{product.name}}</h3>
+    <p>{{product.price}}</p>
+    <p><a href="#" class="btn btn-primary" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Remove</a></p>
+  </div>
 </div>

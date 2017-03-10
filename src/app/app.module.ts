@@ -10,6 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SellerDialogComponent } from './seller-dialog/seller-dialog.component';
 import { ProductsDialogComponent } from './products-dialog/products-dialog.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProductsCardComponent } from './products-card/products-card.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([{
       path: '',
       redirectTo: 'list',

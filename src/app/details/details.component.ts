@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SellerService } from '../seller.service';
+import { NgbModule, NgbTabset, NgbTab, NgbTabContent } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-details',
