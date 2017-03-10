@@ -6,13 +6,19 @@ import { SellerService } from './seller.service';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { SellerDialogComponent } from './seller-dialog/seller-dialog.component';
+import { ProductsDialogComponent } from './products-dialog/products-dialog.component';
+import { ProductsCardComponent } from './products-card/products-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    DetailsComponent
+    DetailsComponent,
+    SellerDialogComponent,
+    ProductsDialogComponent,
+    ProductsCardComponent,
   ],
   imports: [
     BrowserModule,

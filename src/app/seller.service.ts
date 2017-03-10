@@ -2,24 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-// import 'rxjs/add/operator/map';
+import { Product } from './product';
+import { Seller } from './seller';
+
 import 'rxjs/rx';
-
-export interface Seller {
-  id: number;
-  name: string;
-  category: string;
-  imagePath: string;
-}
-
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  quantitySold: number;
-  quantityInStock: number;
-  imagePath: string;
-}
 
 @Injectable()
 export class SellerService {
