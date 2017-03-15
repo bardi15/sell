@@ -1,20 +1,30 @@
-<!--<div *ngIf="seller">
-  <td>{{seller.name}}</td>
-  <td>{{seller.category}}</td>
-  <td><img src={{seller.imagePath}} alt={{seller.name}} /></td>
-</div>-->
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" (click)="close()">&times;</button>
-      <h4 class="modal-title">{{title || 'Confirm'}}</h4>
+      <h4 class="modal-title">{{title || 'Edit'}}</h4>
     </div>
     <div class="modal-body">
-      <p>{{message || 'Are you sure?'}}</p>
+      <div class="input-group">
+        <span class="input-group-addon">id</span>
+        <input type="text" class="form-control" [(ngModel)]="seller.id" aria-describedby="basic-addon1" disabled>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">name</span>
+        <input type="text" class="form-control" [(ngModel)]="seller.name" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">category</span>
+        <input type="text" class="form-control" [(ngModel)]="seller.category" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon">imagePath</span>
+        <input type="text" class="form-control" [(ngModel)]="seller.imagePath" aria-describedby="basic-addon1">
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
-      <button type="button" class="btn btn-default" (click)="close()">Cancel</button>
+      <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
     </div>
   </div>
 </div>

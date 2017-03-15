@@ -17,7 +17,7 @@ export class DetailsComponent implements OnInit {
   Products: any[];
   closeResult: string;
   confirmResult: boolean = null;
-  promptMessage: string = '';
+  // promptMessage: string = '';
   constructor(private router: Router,
     private route: ActivatedRoute, private sellerService: SellerService,
     private dialogService: DialogService) {

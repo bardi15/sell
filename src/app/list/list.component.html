@@ -12,6 +12,7 @@
     <td><a (click)="goToProducts(item.id)">{{item.name}}</a></td>
     <td>{{item.category}}</td>
     <td><img src={{item.imagePath}} alt={{item.name}} /></td>
+    <td><button class="btn btn-primary" role="button" (click)=showConfirm(item)>Edit</button></td>
   </tr>
 </table>
 

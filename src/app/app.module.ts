@@ -46,7 +46,8 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
   providers: [SellerService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ProductsDialogComponent
+    ProductsDialogComponent,
+    SellerDialogComponent
   ],
 })
 export class AppModule { }

@@ -2,13 +2,13 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" (click)="close()">&times;</button>
-      <h4 class="modal-title">{{title || 'Confirm'}}</h4>
+      <h4 class="modal-title">{{title || 'Edit'}}</h4>
 
     </div>
     <div class="modal-body">
       <div class="input-group">
         <span class="input-group-addon">id</span>
-        <input type="text" class="form-control" [(ngModel)] = "product.id" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" [(ngModel)] = "product.id" aria-describedby="basic-addon1" disabled>
       </div>
       <div class="input-group">
         <span class="input-group-addon">name</span>
