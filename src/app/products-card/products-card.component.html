@@ -20,5 +20,17 @@
     <h3>{{product.name}}</h3>
     <p>{{product.price}}</p>
     <p><a href="#" class="btn btn-primary" role="button">Edit</a> <a href="#" class="btn btn-default" role="button">Remove</a></p>
+    <div class="row">
+      <div class="col-sm-4 text-right">
+        <b>Confirm example: </b>
+      </div>
+      <div class="col-sm-4">
+        <button class="btn btn-default btn-block" (click)=showConfirm(product)>Show confirm</button>
+      </div>
+      <div class="col-sm-4" *ngIf="confirmResult != null">
+        <span>Result: </span>
+        <b [ngClass]="{'text-danger': !confirmResult, 'text-success': confirmResult}">{{confirmResult ? 'Accepted': 'Declined'}}</b>
+      </div>
+    </div>
   </div>
 </div>

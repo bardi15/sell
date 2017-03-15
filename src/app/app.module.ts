@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { SellerService } from './seller.service';
 import { AppComponent } from './app.component';
@@ -11,6 +11,8 @@ import { SellerDialogComponent } from './seller-dialog/seller-dialog.component';
 import { ProductsDialogComponent } from './products-dialog/products-dialog.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { JsonpModule } from '@angular/http';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule,
+    JsonpModule,
     NgbModule.forRoot(),
+    BootstrapModalModule.forRoot({container: document.body}),
     RouterModule.forRoot([{
       path: '',
       redirectTo: 'list',
@@ -39,6 +44,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     }])
   ],
   providers: [SellerService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ProductsDialogComponent
+  ],
 })
 export class AppModule { }
