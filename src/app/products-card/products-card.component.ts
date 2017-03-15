@@ -13,21 +13,23 @@ import { ProductsDialogComponent } from '../products-dialog/products-dialog.comp
 export class ProductsCardComponent implements OnInit {
   @Input()
   product: Product;
+  num: number;
   confirmResult: boolean = null;
-  promptMessage: string = '';
+  promptMessage = '';
   constructor(private dialogService: DialogService) { }
 
   ngOnInit() {
   }
-  showConfirm(val: Product) {
+  showConfirm(val: any) {
+    console.log('val', val);
     this.dialogService.addDialog(ProductsDialogComponent, {
-      title: 'Confirmation',
-      message: 'Bla bla confirm some action?',
-      num: val
+      product: val.p,
+      seller: val.s
     })
       .subscribe((isConfirmed) => {
         // Get dialog result
         this.confirmResult = isConfirmed;
+        console.log('confirmed', isConfirmed);
       });
   }
 }
