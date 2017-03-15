@@ -49,9 +49,34 @@ export class SellerService {
     const params = seller;
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-// app.put("/api/sellers/:id", (req, res) => {
 
     return this.http.put(`http://localhost:5000/api/sellers/${seller.id}/`, params, {
+      headers: headers
+    })
+      .map(res => res.json());
+  }
+
+  createSeller(seller: Seller) {
+    // app.post("/api/sellers", (req, res) => {
+    console.log('create: ', seller);
+    const params = seller;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(`http://localhost:5000/api/sellers/`, params, {
+      headers: headers
+    })
+      .map(res => res.json());
+  }
+
+  createProduct(product: Product, seller: number) {
+    // app.post("/api/sellers/:id/products", (req, res) => {
+    console.log('in createProduct');
+    const params = product;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(`http://localhost:5000/api/sellers/${seller}/products`, params, {
       headers: headers
     })
       .map(res => res.json());

@@ -5,6 +5,7 @@ import { SellerService } from '../seller.service';
 //   NgbModal, NgbModalOptions, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsDialogComponent } from '../products-dialog/products-dialog.component';
 import { DialogService } from 'ng2-bootstrap-modal';
+import { Product } from '../product';
 
 
 @Component({
@@ -37,15 +38,16 @@ export class DetailsComponent implements OnInit {
       this.Products = val;
     });
   }
-  // showConfirm(val: number) {
-  //   this.dialogService.addDialog(ProductsDialogComponent, {
-  //     title: 'Confirmation',
-  //     message: 'Bla bla confirm some action?',
-  //     num: val
-  //   })
-  //     .subscribe((isConfirmed) => {
-  //       // Get dialog result
-  //       this.confirmResult = isConfirmed;
-  //     });
-  // }
+  createProduct() {
+    const product = {} as Product;
+    this.dialogService.addDialog(ProductsDialogComponent, {
+      product: product,
+      seller: this.sellerId,
+      create: true
+    })
+      .subscribe((isConfirmed) => {
+        this.confirmResult = isConfirmed;
+        console.log('confirmed', isConfirmed);
+      });
+  }
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { SellerDialogComponent } from '../seller-dialog/seller-dialog.component';
+import { Seller } from '../seller';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,7 @@ export class ListComponent implements OnInit {
   Sellers: any[];
 
   constructor(private sellerService: SellerService, private router: Router,
-  private dialogService: DialogService) {
+    private dialogService: DialogService) {
     this.Sellers = [];
   }
 
@@ -28,15 +29,27 @@ export class ListComponent implements OnInit {
   goToProducts(id: number) {
     this.router.navigate(['details', id]);
   }
-  showConfirm(val: any) {
-    console.log('val', val);
+  editSeller(val: any) {
     this.dialogService.addDialog(SellerDialogComponent, {
-      seller: val
+      seller: val,
+      create: false
     })
       .subscribe((isConfirmed) => {
         // Get dialog result
         // this.confirmResult = isConfirmed;
-        console.log('confirmed', isConfirmed);
+      });
+  }
+
+  createSeller() {
+    const seller = {} as Seller;
+
+    this.dialogService.addDialog(SellerDialogComponent, {
+      seller: seller,
+      create: true
+    })
+      .subscribe((isConfirmed) => {
+        // Get dialog result
+        // this.confirmResult = isConfirmed;
       });
   }
 }

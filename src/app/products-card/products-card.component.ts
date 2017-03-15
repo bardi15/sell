@@ -20,16 +20,26 @@ export class ProductsCardComponent implements OnInit {
 
   ngOnInit() {
   }
-  showConfirm(val: any) {
-    console.log('val', val);
+  editProduct(val: any) {
     this.dialogService.addDialog(ProductsDialogComponent, {
       product: val.p,
-      seller: val.s
+      seller: val.s,
+      create: false
     })
       .subscribe((isConfirmed) => {
-        // Get dialog result
         this.confirmResult = isConfirmed;
         console.log('confirmed', isConfirmed);
       });
   }
+  // createProduct(val: any) {
+  //   this.dialogService.addDialog(ProductsDialogComponent, {
+  //     product: val.p,
+  //     seller: val.s,
+  //     create: true
+  //   })
+  //     .subscribe((isConfirmed) => {
+  //       this.confirmResult = isConfirmed;
+  //       console.log('confirmed', isConfirmed);
+  //     });
+  // }
 }

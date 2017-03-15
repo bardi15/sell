@@ -1,7 +1,7 @@
 <p>
   Söluaðilar
 </p>
-<button>Bæta við</button>
+<button class="btn btn-primary" role="button" (click)=createSeller()>Create Seller</button>
 <table>
   <tr>
     <th>name</th>
@@ -12,7 +12,7 @@
     <td><a (click)="goToProducts(item.id)">{{item.name}}</a></td>
     <td>{{item.category}}</td>
     <td><img src={{item.imagePath}} alt={{item.name}} /></td>
-    <td><button class="btn btn-primary" role="button" (click)=showConfirm(item)>Edit</button></td>
+    <td><button class="btn btn-primary" role="button" (click)=editSeller(item)>Edit</button></td>
   </tr>
 </table>
 

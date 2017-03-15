@@ -6,6 +6,8 @@ import { SellerService } from '../seller.service';
 export interface ConfirmModel {
   product: Product;
   seller: number;
+  create: boolean;
+
 }
 
 @Component({
@@ -16,6 +18,8 @@ export interface ConfirmModel {
 export class ProductsDialogComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel {
   product: Product;
   seller: number;
+  create: boolean;
+
   getData: string;
 
   constructor(dialogService: DialogService, private sellerService: SellerService) {
@@ -23,10 +27,19 @@ export class ProductsDialogComponent extends DialogComponent<ConfirmModel, boole
     console.log('in constructor: ', this.product);
   }
   confirm() {
-    this.sellerService.editProduct(this.product, this.seller)
-      .subscribe(
+    console.log('in confirm, ', this.create);
+    if (this.create) {
+      this.sellerService.createProduct(this.product, this.seller)
+        .subscribe(
         data => this.getData = JSON.stringify(data)
-      );
+        );
+    } else {
+     this.sellerService.editProduct(this.product, this.seller)
+        .subscribe(
+        data => this.getData = JSON.stringify(data)
+        );
+    }
+
     this.result = true;
     this.close();
   }
